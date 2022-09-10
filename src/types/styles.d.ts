@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/**
+ * Responsiveプロパティ
+ */
 export type ResponsiveProp<T> = {
   base?: T
   sm?: T
@@ -7,6 +11,9 @@ export type ResponsiveProp<T> = {
 }
 export type Responsive<T> = T | ResponsiveProp<T>
 
+/**
+ * Flex
+ */
 type SelfPosition =
   | 'center'
   | 'end'
@@ -37,6 +44,7 @@ export type CSSPropertyAlignItems =
   | 'baseline'
   | 'normal'
   | 'stretch'
+  // コードの自動補完
   | (string & {})
 
 export type CSSPropertyAlignContent =
@@ -53,7 +61,7 @@ export type CSSPropertyAlignContent =
 
 export type CSSPropertyJustifyItems =
   | CSSPropertyGlobals
-  | selfPosition
+  | SelfPosition
   | 'baseline'
   | 'left'
   | 'legacy'
@@ -73,14 +81,9 @@ export type CSSPropertyJustifyContent =
 
 export type CSSPropertyFlexWrap =
   | CSSPropertyGlobals
-  | 'norwrap'
+  | 'nowrap'
   | 'wrap'
   | 'wrap-reverse'
-  | 'CSSPropertyGlobals'
-  | 'column'
-  | 'column-reverse'
-  | 'row'
-  | 'row-reverse'
 
 export type CSSPropertyFlexDirection =
   | CSSPropertyGlobals
@@ -91,7 +94,7 @@ export type CSSPropertyFlexDirection =
 
 export type CSSPropertyJustifySelf =
   | CSSPropertyGlobals
-  | selfPosition
+  | SelfPosition
   | 'auto'
   | 'baseline'
   | 'left'
@@ -109,6 +112,9 @@ export type CSSPropertyAlignSelf =
   | 'stretch'
   | (string & {})
 
+/**
+ * Grid
+ */
 type GridLine = 'auto' | (string & {})
 
 export type CSSPropertyGridColumn =

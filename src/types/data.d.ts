@@ -1,6 +1,4 @@
-import { directive } from '@babel/types'
-
-// 商品のカテゴリ
+// 商品カテゴリ
 export type Category = 'shoes' | 'clothes' | 'book'
 // 商品の状態
 export type Condition = 'new' | 'used'
@@ -28,24 +26,7 @@ export type Product = {
   owner: User
 }
 
+// APIコンテキスト
 export type ApiContext = {
   apiRootUrl: string
 }
-
-/**
- * Responsiveプロパティ
- * CSSプロパティの値をブレークポイントごとに設定できる
- * TはCSSプロパティの値の型
- */
-type ResponsiveProp<T> = {
-  base?: T // デフォルト
-  sm?: T // 640px以上
-  md?: T // 768px以上
-  lg?: T // 1024px以上
-  xl?: T // 1280px以上
-}
-
-/**
- * Responsive型はResponsiveプロパティもしくはCSSプロパティの値
- */
-type Responsive<T> = T | Responsive<T>

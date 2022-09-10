@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
-import { CSSPropertyGridArea, CSSPropertyGridAutoFlow, CSSPropertyGridColumn, CSSPropertyGridRow, Responsive } from 'types/styles'
+import Box, { BoxProps } from 'components/layout/Box'
+import type { CSSPropertyGridArea, CSSPropertyGridAutoFlow, CSSPropertyGridColumn, CSSPropertyGridRow, Responsive } from 'types/styles'
 import { toPropValue } from 'utils/styles'
-import Box, { BoxProps } from '../Box'
 
 type GridProps = BoxProps & {
   gridGap?: Responsive<string>
@@ -18,7 +19,11 @@ type GridProps = BoxProps & {
   gridArea?: Responsive<string>
 }
 
-const Grid = styled(Box) <GridProps>`
+/**
+ * Gridコンポーネント
+ * gridレイアウトの実現に利用する
+ */
+const Grid = styled(Box)<GridProps>`
   ${(props) => toPropValue('grid-gap', props.gridGap, props.theme)}
   ${(props) => toPropValue('grid-column-gap', props.gridColumnGap, props.theme)}
   ${(props) => toPropValue('grid-row-gap', props.gridRowGap, props.theme)}
@@ -34,7 +39,7 @@ const Grid = styled(Box) <GridProps>`
 `
 
 Grid.defaultProps = {
-  display: 'grid'
+  display: 'grid',
 }
 
 export default Grid

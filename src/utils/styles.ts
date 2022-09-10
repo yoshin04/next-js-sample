@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-types */
 import { theme } from 'themes'
 import type { ResponsiveProp, Responsive } from 'types'
 
+// Themeの型
 export type AppTheme = typeof theme
 
 type SpaceThemeKeys = keyof typeof theme.space
@@ -16,12 +19,12 @@ export type FontSize = FontSizeThemeKeys | (string & {})
 export type LetterSpacing = LetterSpacingThemeKeys | (string & {})
 export type LineHeight = LineHeightThemeKeys | (string & {})
 
-// ブレークポイント
+// ブレイクポイント
 const BREAKPOINTS: { [key: string]: string } = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
+  sm: '640px', // 640px以上
+  md: '768px', // 768px以上
+  lg: '1024px', // 1024px以上
+  xl: '1280px', // 1280px以上
 }
 
 /**
@@ -29,7 +32,7 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param propKey CSSプロパティ
  * @param prop Responsive型
  * @param theme AppTheme
- * @returns CSSプロパティとその値 (ex. background-color: white)
+ * @returns CSSプロパティとその値 (ex. background-color: white;)
  */
 export function toPropValue<T>(
   propKey: string,
@@ -42,12 +45,13 @@ export function toPropValue<T>(
     const result = []
     for (const responsiveKey in prop) {
       if (responsiveKey === 'base') {
+        // デフォルトのスタイル
         result.push(
           `${propKey}: ${toThemeValueIfNeeded(
             propKey,
             prop[responsiveKey],
             theme,
-          )}`,
+          )};`,
         )
       } else if (
         responsiveKey === 'sm' ||
@@ -61,14 +65,14 @@ export function toPropValue<T>(
           propKey,
           prop[responsiveKey],
           theme,
-        )}`
+        )};`
         result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`)
       }
     }
     return result.join('\n')
   }
 
-  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`
+  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)};`
 }
 
 const SPACE_KEYS = new Set([
@@ -95,7 +99,7 @@ const LINE_HEIGHT_KEYS = new Set(['line-height'])
  * @param theme AppTheme
  * @returns CSSプロパティの値
  */
-function toThemeValueIfNeeded<T>(propKey: string, value: T, theme: AppTheme) {
+function toThemeValueIfNeeded<T>(propKey: string, value: T, theme?: AppTheme) {
   if (
     theme &&
     theme.space &&
@@ -114,7 +118,7 @@ function toThemeValueIfNeeded<T>(propKey: string, value: T, theme: AppTheme) {
     theme &&
     theme.fontSizes &&
     FONT_SIZE_KEYS.has(propKey) &&
-    isFontsSizeThemeKeys(value, theme)
+    isFontSizeThemeKeys(value, theme)
   ) {
     return theme.fontSizes[value]
   } else if (
@@ -126,11 +130,11 @@ function toThemeValueIfNeeded<T>(propKey: string, value: T, theme: AppTheme) {
     return theme.letterSpacings[value]
   } else if (
     theme &&
-    theme.letterSpacings &&
-    LINE_SPACING_KEYS.has(propKey) &&
+    theme.lineHeights &&
+    LINE_HEIGHT_KEYS.has(propKey) &&
     isLineHeightThemeKeys(value, theme)
   ) {
-    return theme.letterSpacings[value]
+    return theme.lineHeights[value]
   }
 
   return value
@@ -147,15 +151,15 @@ function isResponsivePropType<T>(prop: any): prop is ResponsiveProp<T> {
   )
 }
 
-function isSpaceThemeKeys(prop: any, theme: AppTheme): prop is ColorThemeKeys {
-  return Object.keys(theme.colors).filter((key) => key == prop).length > 0
+function isSpaceThemeKeys(prop: any, theme: AppTheme): prop is SpaceThemeKeys {
+  return Object.keys(theme.space).filter((key) => key == prop).length > 0
 }
 
 function isColorThemeKeys(prop: any, theme: AppTheme): prop is ColorThemeKeys {
   return Object.keys(theme.colors).filter((key) => key == prop).length > 0
 }
 
-function isFontsSizeThemeKeys(
+function isFontSizeThemeKeys(
   prop: any,
   theme: AppTheme,
 ): prop is FontSizeThemeKeys {

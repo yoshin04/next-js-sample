@@ -1,6 +1,6 @@
 import { addDecorator } from '@storybook/react'
-import { createGlobalStyle } from 'styled-components'
-import { theme } from '..src/themes'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { theme } from '../src/themes'
 import * as NextImage from 'next/image'
 
 export const parameters = {
@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
   * {
     box-sizing: border-box;
@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
+// Themeの適用
 addDecorator((story) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
@@ -39,20 +40,15 @@ addDecorator((story) => (
   </ThemeProvider>
 ))
 
-// MEMO: Next/Imageの差し替え
+// next/imageの差し替え
 const OriginalNextImage = NextImage.default
 
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) =>
     typeof props.src === 'string' ? (
-      <OriginalNextImage {...props} unoptimized bluerDataUrl={props.src} />
+      <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
     ) : (
       <OriginalNextImage {...props} unoptimized />
     ),
-})
-
-Object.defineProperty(NextImage, '__esModule', {
-  configurable: true,
-  value: true,
 })

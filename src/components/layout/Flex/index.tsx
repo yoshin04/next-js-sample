@@ -1,6 +1,17 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 import Box, { BoxProps } from 'components/layout/Box'
-import type { Responsive, CSSPropertyAlignItems, CSSPropertyAlignContent, CSSPropertyJustifyContent, CSSPropertyJustifyItems, CSSPropertyFlexWrap, CSSPropertyJustifySelf, CSSPropertyFlexDirection, CSSPropertyAlignSelf } from 'types/styles'
+import type {
+  Responsive,
+  CSSPropertyAlignItems,
+  CSSPropertyAlignContent,
+  CSSPropertyJustifyContent,
+  CSSPropertyJustifyItems,
+  CSSPropertyFlexDirection,
+  CSSPropertyJustifySelf,
+  CSSPropertyFlexWrap,
+  CSSPropertyAlignSelf,
+} from 'types/styles'
 import { toPropValue } from 'utils/styles'
 
 type FlexProps = BoxProps & {
@@ -18,6 +29,10 @@ type FlexProps = BoxProps & {
   order?: Responsive<string>
 }
 
+/**
+ * Flexコンポーネント
+ * flexboxの実現に利用する
+ */
 const Flex = styled(Box)<FlexProps>`
   ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
   ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
@@ -34,7 +49,7 @@ const Flex = styled(Box)<FlexProps>`
 `
 
 Flex.defaultProps = {
-  display: 'flex'
+  display: 'flex',
 }
 
 export default Flex

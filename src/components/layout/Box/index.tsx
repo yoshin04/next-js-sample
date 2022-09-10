@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 import type { Responsive } from 'types/styles'
 import { toPropValue, Color, Space } from 'utils/styles'
@@ -26,10 +27,8 @@ export type BoxProps = {
 
 /**
  * Boxコンポーネント
- * レイアウトの調整に利用
- * ${(props) => toPropValue('color, props.color, props.theme)}
+ * レイアウトの調整に利用する
  */
-
 const Box = styled.div<BoxProps>`
   ${(props) => toPropValue('color', props.color, props.theme)}
   ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}

@@ -1,6 +1,6 @@
 import colors from './colors'
 import fontSizes from './fontSizes'
-import letterSpacings from './latterSpacings'
+import letterSpacings from './letterSpacings'
 import lineHeights from './lineHeights'
 import space from './space'
 
