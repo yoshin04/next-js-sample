@@ -1,12 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
-const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean; }>`
+const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   color: ${({ theme }) => theme.colors.inputText};
   ${({ theme, hasBorder, hasError }) => {
     if (hasBorder) {
       return css`
-        border: 1px solid ${hasError ? theme.colors.danger : theme.colors.border};
-        border-radius: 5px;  
+        border: 1px solid
+          ${hasError ? theme.colors.danger : theme.colors.border};
+        border-radius: 5px;
       `
     } else {
       return css`

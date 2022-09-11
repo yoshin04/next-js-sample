@@ -4,8 +4,8 @@ import styled from 'styled-components'
 type ImageShape = 'circle' | 'square'
 type ShapeImageProps = ImageProps & { shape?: ImageShape }
 
-const ImageWidthShape = styled(Image) <{ shape?: ImageShape }>`
-border-radius: ${({ shape }) => (shape === 'circle' ? '50%' : '0')};
+const ImageWidthShape = styled(Image)<{ shape?: ImageShape }>`
+  border-radius: ${({ shape }) => (shape === 'circle' ? '50%' : '0')};
 `
 const ShapeImage = (props: ShapeImageProps) => {
   const { shape, ...imageProps } = props

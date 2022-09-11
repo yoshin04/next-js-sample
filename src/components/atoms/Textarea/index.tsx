@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 
-export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   minRows?: number
   maxRows?: number
   hasError?: boolean
@@ -41,29 +42,35 @@ const TextArea = (props: TextAreaProps) => {
 
   const [textareaRows, setTextareaRows] = useState(Math.min(rows, minRows))
 
-  console.assert(!(rows < minRows), 'TextArea rows should be greater than minRows.')
+  console.assert(
+    !(rows < minRows),
+    'TextArea rows should be greater than minRows.',
+  )
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const textareaLineHeight = 24
-    const previousRows = e.target.rows
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const textareaLineHeight = 24
+      const previousRows = e.target.rows
 
-    e.target.rows = minRows
+      e.target.rows = minRows
 
-    // MEMO: 現在の行数
-    const currentRows = Math.floor(e.target.scrollHeight / textareaLineHeight)
+      // MEMO: 現在の行数
+      const currentRows = Math.floor(e.target.scrollHeight / textareaLineHeight)
 
-    if (currentRows === previousRows) {
-      e.target.rows = currentRows
-    }
+      if (currentRows === previousRows) {
+        e.target.rows = currentRows
+      }
 
-    if (currentRows >= maxRows) {
-      e.target.rows = maxRows
-      e.target.scrollTop = e.target.scrollHeight
-    }
+      if (currentRows >= maxRows) {
+        e.target.rows = maxRows
+        e.target.scrollTop = e.target.scrollHeight
+      }
 
-    setTextareaRows(currentRows < maxRows ? currentRows : maxRows)
-    onChange && onChange(e)
-  }, [onChange, minRows, maxRows])
+      setTextareaRows(currentRows < maxRows ? currentRows : maxRows)
+      onChange && onChange(e)
+    },
+    [onChange, minRows, maxRows],
+  )
 
   return (
     <StyledTextArea

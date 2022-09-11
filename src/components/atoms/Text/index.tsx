@@ -1,8 +1,21 @@
 import styled from 'styled-components'
 import type { Responsive } from 'types/styles'
-import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles'
+import {
+  Color,
+  FontSize,
+  LetterSpacing,
+  LineHeight,
+  Space,
+  toPropValue,
+} from 'utils/styles'
 
-export type TextVariant = 'extraSmall' | 'small' | 'medium' | 'mediumLarge' | 'large' | 'extraLarge'
+export type TextVariant =
+  | 'extraSmall'
+  | 'small'
+  | 'medium'
+  | 'mediumLarge'
+  | 'large'
+  | 'extraLarge'
 
 export type TextProps = {
   variant?: TextVariant
@@ -67,19 +80,27 @@ const variants = {
 
 const Text = styled.span<TextProps>`
   ${({ variant, fontSize, letterSpacing, lineHeight, theme }) => {
-  if (variant && variants[variant]) {
-    const styles = []
-    !fontSize && styles.push(toPropValue('font-size', variants[variant].fontSize, theme))
-    !letterSpacing && styles.push(toPropValue('letter-spacing', variants[variant].letterSpacing, theme))
-    !lineHeight && styles.push(toPropValue('line-height', variants[variant].letterSpacing, theme))
-    return styles.join('\n')
+    if (variant && variants[variant]) {
+      const styles = []
+      !fontSize &&
+        styles.push(toPropValue('font-size', variants[variant].fontSize, theme))
+      !letterSpacing &&
+        styles.push(
+          toPropValue('letter-spacing', variants[variant].letterSpacing, theme),
+        )
+      !lineHeight &&
+        styles.push(
+          toPropValue('line-height', variants[variant].letterSpacing, theme),
+        )
+      return styles.join('\n')
     }
   }}
   ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
   ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) =>
+    toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}
@@ -101,7 +122,7 @@ const Text = styled.span<TextProps>`
 
 Text.defaultProps = {
   variant: 'medium',
-  color: 'text'
+  color: 'text',
 }
 
 export default Text

@@ -7,7 +7,7 @@ const BadgeWrapper = styled.div<{ backgroundColor: string }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({backgroundColor}) => backgroundColor};
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `
 
 const BadgeText = styled.p`
@@ -17,8 +17,8 @@ const BadgeText = styled.p`
 `
 
 interface BadgeProps {
-  content: string;
-  backgroundColor: string;
+  content: string
+  backgroundColor: string
 }
 
 const Badge = ({ content, backgroundColor }: BadgeProps) => {

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Text from './index'
 
 export default {
@@ -27,14 +27,14 @@ export default {
       control: { type: 'text' },
       description: 'テキスト',
       table: {
-        type: { summary: 'string' }
+        type: { summary: 'string' },
       },
     },
     fontWeight: {
       control: { type: 'text' },
       description: 'フォントの太さ',
       table: {
-        type: { summary: 'string'}
+        type: { summary: 'string' },
       },
     },
     lineHeight: {
@@ -49,7 +49,7 @@ export default {
       description: 'テキストの色',
       table: {
         type: {
-          summary: 'string'
+          summary: 'string',
         },
       },
     },
@@ -58,7 +58,7 @@ export default {
       description: '背景色',
       table: {
         type: {
-          summary: 'string'
+          summary: 'string',
         },
       },
     },
@@ -132,7 +132,7 @@ export default {
         type: { summary: 'number' },
       },
     },
-  }
+  },
 } as ComponentMeta<typeof Text>
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
@@ -164,4 +164,3 @@ Large.args = { variant: 'large', children: longText }
 
 export const ExtraLarge = Template.bind({})
 ExtraLarge.args = { variant: 'extraLarge', children: longText }
-
