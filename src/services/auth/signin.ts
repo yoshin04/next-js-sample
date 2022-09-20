@@ -1,4 +1,4 @@
-import { ApiContent, User } from 'types'
+import { ApiContext, User } from 'types'
 import { fetcher } from 'utils'
 
 export type SigninParams = {
@@ -7,7 +7,7 @@ export type SigninParams = {
 }
 
 const signin = async (
-  content: ApiContent,
+  content: ApiContext,
   params: SigninParams,
 ): Promise<User> => {
   return await fetcher(
