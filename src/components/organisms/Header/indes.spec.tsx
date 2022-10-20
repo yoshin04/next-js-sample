@@ -6,7 +6,7 @@ import { theme } from 'themes'
 import type { User, Product } from 'types'
 
 // ShoppingCartContextのモック
-jest.mock('context/ShoppingCartContext')
+jest.mock('contexts/ShoppingCartContext')
 // eslint-disable-next-line import/order
 import { useShoppingCartContext } from 'contexts/ShoppingCartContext'
 // オリジナルのShoppingCartContextProviderを取得
@@ -64,8 +64,8 @@ describe('Header', () => {
       </ThemeProvider>,
     )
 
-    // カートに入っている(バッジが出てる)
-    expect(screen.getAllByTestId('badge.wrapper').length).toBeGreaterThan(0)
+    // カートに入っている（バッジが出てる）
+    expect(screen.getAllByTestId('badge-wrapper').length).toBeGreaterThan(0)
 
     renderResult.unmount()
     useShoppingCartContextMock.mockReset()
