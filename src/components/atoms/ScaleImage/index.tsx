@@ -1,7 +1,7 @@
 import Image, { ImageProps } from 'next/image'
 import styled from 'styled-components'
 import { Responsive } from 'types'
-import { toPropValue } from 'utils/styles';
+import { toPropValue } from 'utils/styles'
 
 type ScaleImageProps =
   | Omit<ImageProps, 'quality'> & {

@@ -69,7 +69,6 @@ interface DropzoneProps {
   onChange?: (files: File[]) => void
 }
 
-
 type DropzoneRootProps = {
   isFocused?: boolean
   hasError?: boolean
@@ -136,8 +135,11 @@ const Dropzone = (props: DropzoneProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsFocused(false)
 
-    const files = value.concat(getFilesFromEvent(e).filter((file) => acceptedFileTypes.includes(file.type as FileType),
-    ))
+    const files = value.concat(
+      getFilesFromEvent(e).filter((file) =>
+        acceptedFileTypes.includes(file.type as FileType),
+      ),
+    )
 
     onDrop && onDrop(files)
     onChange && onChange(files)
@@ -149,7 +151,11 @@ const Dropzone = (props: DropzoneProps) => {
     e.stopPropagation()
     setIsFocused(false)
 
-    const files = value.concat(getFilesFromEvent(e).filter((file) => acceptedFileTypes.includes(file.type as FileType)))
+    const files = value.concat(
+      getFilesFromEvent(e).filter((file) =>
+        acceptedFileTypes.includes(file.type as FileType),
+      ),
+    )
 
     if (files.length === 0) {
       return window.alert(

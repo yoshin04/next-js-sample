@@ -27,7 +27,6 @@ const DropdownValue = styled.div`
   color: ${({ theme }) => theme.colors.text};
 `
 
-
 const DropdownPlaceholder = styled.div`
   color: #757575;
   font-size: ${({ theme }) => theme.fontSizes[1]};
@@ -39,7 +38,7 @@ const DropdownArrow = styled.div<{ isOpen?: boolean }>`
   border-color: ${({ isOpen }) =>
     isOpen
       ? 'transparent transparent #222222;'
-    : '#222222 transparent transparent'};
+      : '#222222 transparent transparent'};
   border-width: ${({ isOpen }) => (isOpen ? '0 5px 5px' : '5px 5px 0;')};
   border-style: solid;
   content: ' ';
@@ -130,27 +129,33 @@ const Dropdown = (props: DropdownProps) => {
   const [selectedItem, setSelectedItem] = useState(initialItem)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const handleDocumentClick = useCallback((e: MouseEvent | TouchEvent) => {
-    // MEMO: 自分自身をクリックした場合は何もしない
-    if (dropdownRef.current) {
-      const elems = dropdownRef.current.querySelectorAll('*')
+  const handleDocumentClick = useCallback(
+    (e: MouseEvent | TouchEvent) => {
+      // MEMO: 自分自身をクリックした場合は何もしない
+      if (dropdownRef.current) {
+        const elems = dropdownRef.current.querySelectorAll('*')
 
-      for (let i = 0; i < elems.length; i++) {
-        if (elems[i] == e.target) {
-          return
+        for (let i = 0; i < elems.length; i++) {
+          if (elems[i] == e.target) {
+            return
+          }
         }
       }
-    }
 
-    setIsOpenValue(false)
-  }, [dropdownRef])
+      setIsOpenValue(false)
+    },
+    [dropdownRef],
+  )
 
   const handleMouseDown = (e: React.SyntheticEvent) => {
     setIsOpenValue((isOpen) => !isOpen)
     e.stopPropagation()
   }
 
-  const handleSelectValue = (e: React.FormEvent<HTMLDivElement>, item: DropdownItem) => {
+  const handleSelectValue = (
+    e: React.FormEvent<HTMLDivElement>,
+    item: DropdownItem,
+  ) => {
     e.stopPropagation()
 
     setSelectedItem(item)

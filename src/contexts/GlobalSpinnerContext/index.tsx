@@ -1,13 +1,21 @@
 import React, { useState, useContext, createContext } from 'react'
 
 const GlobalSpinnerContext = createContext<boolean>(false)
-const GlobalSpinnerActionsContext = createContext<React.Dispatch<React.SetStateAction<boolean>>>(() => { })
+const GlobalSpinnerActionsContext = createContext<
+  React.Dispatch<React.SetStateAction<boolean>>
+>(() => {})
 
 // グローバルスピナーの表示・非表示
-export const useGlobalSpinnerContext = (): boolean => useContext<boolean>(GlobalSpinnerContext)
+export const useGlobalSpinnerContext = (): boolean =>
+  useContext<boolean>(GlobalSpinnerContext)
 
 // グローバルスピナーの表示・非表示のアクション
-export const useGlobalSpinnerActionsContext = (): React.Dispatch<React.SetStateAction<boolean>> => useContext<React.Dispatch<React.SetStateAction<boolean>>>(GlobalSpinnerActionsContext)
+export const useGlobalSpinnerActionsContext = (): React.Dispatch<
+  React.SetStateAction<boolean>
+> =>
+  useContext<React.Dispatch<React.SetStateAction<boolean>>>(
+    GlobalSpinnerActionsContext,
+  )
 
 interface GlobalSpinnerContextProviderProps {
   children?: React.ReactNode
@@ -31,4 +39,3 @@ const GlobalSpinnerContextProvider = ({
 }
 
 export default GlobalSpinnerContextProvider
-  

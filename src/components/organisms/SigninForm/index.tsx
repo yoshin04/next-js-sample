@@ -5,8 +5,8 @@ import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 
 export type SigninFormData = {
-  username: string;
-  password: string;
+  username: string
+  password: string
 }
 
 interface SigninFormProps {
@@ -57,7 +57,7 @@ const SigninForm = ({ onSignin }: SigninFormProps) => {
         )}
       </Box>
       <Button width="100%" type="submit">
-          サインイン
+        サインイン
       </Button>
     </form>
   )

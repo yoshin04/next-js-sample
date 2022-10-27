@@ -6,7 +6,7 @@ import GlobalSpinnerContextProvider, {
 } from 'contexts/GlobalSpinnerContext'
 
 export default {
-  title: 'organisms/GlobalSpinner'
+  title: 'organisms/GlobalSpinner',
 } as ComponentMeta<typeof GlobalSpinner>
 
 export const WithContextProvider = () => {

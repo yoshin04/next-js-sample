@@ -17,14 +17,14 @@ import UserProfileContainer from 'containers/UserProfileContainer'
 import getAllProducts from 'services/products/get-all-products'
 import getAllUsers from 'services/users/get-all-users'
 import getUser from 'services/users/get-user'
-import type { ApiContext } from 'types';
+import type { ApiContext } from 'types'
 
 type UserPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const UserPage: NextPage<UserPageProps> = ({
   id,
   user,
-  products
+  products,
 }: UserPageProps) => {
   const router = useRouter()
 
@@ -44,13 +44,13 @@ const UserPage: NextPage<UserPageProps> = ({
         <Box width="1180px">
           <Box marginBottom={2}>
             <Breadcrumb>
-                <BreadcrumbItem>
-                  <Link href="/">
-                    <a>トップ</a>
-                  </Link>
-                </BreadcrumbItem>
-                {user && <BreadcrumbItem>{user.username}</BreadcrumbItem>}
-              </Breadcrumb>
+              <BreadcrumbItem>
+                <Link href="/">
+                  <a>トップ</a>
+                </Link>
+              </BreadcrumbItem>
+              {user && <BreadcrumbItem>{user.username}</BreadcrumbItem>}
+            </Breadcrumb>
           </Box>
           <Box>
             <Box marginBottom={1}>
@@ -107,7 +107,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
     props: {
       id: userId,
       user,
-      products: products ?? []
+      products: products ?? [],
     },
     revalidate: 10,
   }

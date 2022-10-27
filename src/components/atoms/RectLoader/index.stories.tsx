@@ -27,4 +27,4 @@ const Template: ComponentStory<typeof RectLoader> = (args) => (
   <RectLoader {...args} />
 )
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})

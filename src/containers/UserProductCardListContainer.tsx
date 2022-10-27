@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import ProductCard from 'components/organisms/ProductCard'
 import ProductCardList from 'components/organisms/ProductCardList'
 import useSearch from 'services/products/use-search'
-import type { ApiContext, Product } from 'types';
+import type { ApiContext, Product } from 'types'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
@@ -23,11 +23,14 @@ interface UserProductCardListContainerProps {
 /**
  * ユーザー商品カードリストコンテナ
  */
-const UserProductCardListContainer = ({ userId, products }: UserProductCardListContainerProps) => {
+const UserProductCardListContainer = ({
+  userId,
+  products,
+}: UserProductCardListContainerProps) => {
   // ユーザーの所持する商品
   const { products: userProducts } = useSearch(context, {
     userId,
-    initial: products
+    initial: products,
   })
 
   return (

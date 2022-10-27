@@ -41,12 +41,12 @@ interface ImagePreviewProps {
   onRemove?: (src: string) => void
 }
 
-const ImagePreview = ({ 
+const ImagePreview = ({
   src,
   alt,
   height,
   width,
-  onRemove
+  onRemove,
 }: ImagePreviewProps) => {
   const handleCloseClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()

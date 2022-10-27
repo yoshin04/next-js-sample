@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
-import CheckBox from 'components/molecules/CheckBox';
+import CheckBox from 'components/molecules/CheckBox'
 
 type Item = {
   label: string
@@ -23,7 +23,7 @@ const FilterGroup = ({
   title,
   items,
   value = [],
-  defaultValue =[],
+  defaultValue = [],
   onChange,
 }: FilterGroupProps) => {
   const [selected, setSelected] = useState(value ?? defaultValue)
@@ -32,13 +32,18 @@ const FilterGroup = ({
     setSelected(value)
   }, [value])
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.name
-    const newSelected = e.target.checked ? [...selected, value] : selected.filter(v => v !== value)
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.name
+      const newSelected = e.target.checked
+        ? [...selected, value]
+        : selected.filter((v) => v !== value)
 
-    setSelected(newSelected)
-    onChange && onChange(newSelected)
-  }, [onChange, selected])
+      setSelected(newSelected)
+      onChange && onChange(newSelected)
+    },
+    [onChange, selected],
+  )
 
   return (
     <>

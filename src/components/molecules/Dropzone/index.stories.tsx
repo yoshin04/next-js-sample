@@ -11,7 +11,7 @@ export default {
       control: { type: 'number' },
       description: '縦幅',
       table: {
-        type: { summary: 'number' }, 
+        type: { summary: 'number' },
       },
     },
     width: {
@@ -45,9 +45,9 @@ export default {
       },
     },
     onChange: {
-      description: 'ファイルが入力されたときのイベントハンドラ'
-    }
-  }
+      description: 'ファイルが入力されたときのイベントハンドラ',
+    },
+  },
 } as ComponentMeta<typeof Dropzone>
 
 const Template: ComponentStory<typeof Dropzone> = (args) => {
@@ -106,4 +106,3 @@ WithControl.args = {
   acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
   hasError: false,
 }
-

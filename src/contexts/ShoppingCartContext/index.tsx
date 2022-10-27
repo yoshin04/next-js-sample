@@ -1,5 +1,5 @@
 import React, { useReducer, useContext } from 'react'
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducers';
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducers'
 import type { Product } from 'types'
 
 type ShoppingCartContextType = {
@@ -14,15 +14,18 @@ const ShoppingCartContext = React.createContext<ShoppingCartContextType>({
   removeProductFromCart: () => {},
 })
 
-export const useShoppingCartContext = (): ShoppingCartContextType => useContext<ShoppingCartContextType>(ShoppingCartContext)
+export const useShoppingCartContext = (): ShoppingCartContextType =>
+  useContext<ShoppingCartContextType>(ShoppingCartContext)
 
 interface ShoppingCartContextProviderProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
-export const ShoppingCartContextProvider = ({ children }: ShoppingCartContextProviderProps) => {
+export const ShoppingCartContextProvider = ({
+  children,
+}: ShoppingCartContextProviderProps) => {
   const products: Product[] = []
-  const [cartState, dispatch] = useReducer(shopReducer, products);
+  const [cartState, dispatch] = useReducer(shopReducer, products)
 
   // 商品をカートに追加
   const addProductToCart = (product: Product) => {

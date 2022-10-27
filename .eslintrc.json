@@ -2,20 +2,24 @@
   "extends": [
     "next",
     "next/core-web-vitals",
+    "eslint:recommended",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript"
   ],
   "rules": {
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
     "react/react-in-jsx-scope": "off",
     "import/order": [2, { "alphabetize": { "order": "asc" } }],
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "all",
-        "endOFLine": "lf",
+        "endOfLine": "lf",
         "semi": false,
         "singleQuote": true,
         "printWidth": 80,

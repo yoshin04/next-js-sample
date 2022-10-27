@@ -1,7 +1,7 @@
 /**
  * ロゴ
  */
- const AppLogo = () => (
+const AppLogo = () => (
   <svg
     width="40"
     height="40"

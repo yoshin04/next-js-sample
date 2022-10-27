@@ -7,14 +7,14 @@ import ProductCard from 'components/organisms/ProductCard'
 import ProductCardCarousel from 'components/organisms/ProductCardCarousel'
 import Layout from 'components/templates/Layout'
 import getAllProducts from 'services/products/get-all-products'
-import { ApiContext, Product } from 'types';
+import { ApiContext, Product } from 'types'
 
 type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const HomePage: NextPage<HomePageProps> = ({
   bookProducts,
   clothesProducts,
-  shoesProducts
+  shoesProducts,
 }: HomePageProps) => {
   // 商品カードカルーセルをレンダリング
   const renderProductCardCarousel = (products: Product[]) => {
@@ -41,8 +41,7 @@ const HomePage: NextPage<HomePageProps> = ({
 
   return (
     <Layout>
-      <Flex padding={2} justifyContent="center"
-      backgroundColor="primary">
+      <Flex padding={2} justifyContent="center" backgroundColor="primary">
         <Flex
           width={{ base: '100%', md: '1040px' }}
           justifyContent="space-between"
@@ -112,7 +111,7 @@ const HomePage: NextPage<HomePageProps> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || 'http'
+    apiRootUrl: process.env.API_BASE_URL || 'http',
   }
   // 各商品のトップ6個を取得し、静的ページを作成
   // 60病でrevalidateな状態にし、静的ページを更新する

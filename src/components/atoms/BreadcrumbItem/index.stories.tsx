@@ -11,4 +11,4 @@ export const Standard = () => (
     <BreadcrumbItem>Item 2</BreadcrumbItem>
     <BreadcrumbItem>Item 3</BreadcrumbItem>
   </div>
-);
+)

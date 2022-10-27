@@ -23,4 +23,4 @@ const RectLoader = ({ width, height, ...rest }: RectLoaderProps) => (
   </ContentLoader>
 )
 
-export default RectLoader;
+export default RectLoader

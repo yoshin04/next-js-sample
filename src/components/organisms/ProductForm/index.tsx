@@ -2,11 +2,11 @@ import { Controller, useForm } from 'react-hook-form'
 import Button from 'components/atoms/Button'
 import Input from 'components/atoms/Input'
 import Text from 'components/atoms/Text'
-import TextArea from 'components/atoms/TextArea'
+import TextArea from 'components/atoms/Textarea'
 import Box from 'components/layout/Box'
 import Dropdown from 'components/molecules/Dropdown'
 import InputImages, { FileData } from 'components/molecules/InputImages'
-import type { Category, Condition } from 'types';
+import type { Category, Condition } from 'types'
 
 export type ProductFormData = {
   image: FileData[]
@@ -32,7 +32,7 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
     register,
     handleSubmit,
     control,
-    formState: { errors }
+    formState: { errors },
   } = useForm<ProductFormData>()
 
   const onSubmit = (data: ProductFormData) => {
@@ -71,7 +71,7 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
         <Box marginBottom={2}>
           <Text as="label" variant="mediumLarge" fontWeight="bold">
             商品情報
-          </Text>  
+          </Text>
         </Box>
         <Box marginBottom={1}>
           <Text as="label" variant="medium">
@@ -193,7 +193,9 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
           )}
         </Box>
       </Box>
-      <Button width="100%" type="submit">出品</Button>
+      <Button width="100%" type="submit">
+        出品
+      </Button>
     </form>
   )
 }

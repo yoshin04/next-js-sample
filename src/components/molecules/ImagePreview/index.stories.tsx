@@ -91,7 +91,13 @@ const Template: ComponentStory<typeof ImagePreview> = (args) => {
     <Container>
       <Dropzone value={files} onDrop={(fileList) => setFiles(fileList)} />
       {images.map((image, i) => (
-        <ImagePreview key={i} src={image.src} width="100px" {...args} onRemove={handleRemove} />
+        <ImagePreview
+          key={i}
+          src={image.src}
+          width="100px"
+          {...args}
+          onRemove={handleRemove}
+        />
       ))}
     </Container>
   )

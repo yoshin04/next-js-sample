@@ -10,7 +10,7 @@ import Breadcrumb from 'components/molecules/Breadcrumb'
 import FilterGroup from 'components/molecules/FilterGroup'
 import Layout from 'components/templates/Layout'
 import ProductCardListContainer from 'containers/ProductCardListContainer'
-import type { Category, Condition } from 'types';
+import type { Category, Condition } from 'types'
 
 const Anchor = styled(Text)`
   cursor: pointer;
@@ -29,7 +29,7 @@ const SearchPage: NextPage = () => {
   const router = useRouter()
   // 商品のカテゴリーをクエリから取得
   const slug: Category[] = Array.isArray(router.query.slug)
-  ? (router.query.slug as Category[])
+    ? (router.query.slug as Category[])
     : []
   // 商品の状態をクエリから取得
   const conditions = (() => {
@@ -71,11 +71,13 @@ const SearchPage: NextPage = () => {
             <BreadcrumbItem>
               <Link href="/">
                 <a>トップ</a>
+                <meta itemProp="position" content="1" />
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <Link href="/search">
                 <a>検索</a>
+                <meta itemProp="position" content="2" />
               </Link>
             </BreadcrumbItem>
             {/* パンくずリストを選択したカテゴリから生成 */}
@@ -83,6 +85,7 @@ const SearchPage: NextPage = () => {
               <BreadcrumbItem key={i}>
                 <Link href={`/search/${slug.slice(0, i + 1).join('/')}`}>
                   <a>{categoryNameDict[category] ?? 'Unknown'}</a>
+                  <meta itemProp="position" content="3" />
                 </Link>
               </BreadcrumbItem>
             ))}

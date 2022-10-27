@@ -9,20 +9,20 @@ interface ProductCardProps {
    */
   title: string
   /**
-    * 商品価格
-    */
+   * 商品価格
+   */
   price: number
   /**
-    * 商品画像URL
-    */
+   * 商品画像URL
+   */
   imageUrl: string
   /**
-    * 商品のぼかし画像のデータURIスキーム
-    */
+   * 商品のぼかし画像のデータURIスキーム
+   */
   blurDataUrl?: string
   /**
-    * バリアント（表示スタイル）
-    */
+   * バリアント（表示スタイル）
+   */
   variant?: 'listing' | 'small' | 'detail'
 }
 
@@ -47,7 +47,7 @@ const ProductCardInfo = styled.div`
 /**
  * 商品カード
  */
- const ProductCard = ({
+const ProductCard = ({
   title,
   price,
   imageUrl,

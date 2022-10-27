@@ -23,4 +23,4 @@ const BreadcrumbItem = styled.li`
   }
 `
 
-export default BreadcrumbItem;
+export default BreadcrumbItem

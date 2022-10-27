@@ -4,7 +4,7 @@ import AppLogo from 'components/atoms/AppLogo'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
 import Layout from 'components/templates/Layout'
-import SigninFormContainer from 'containers/SigninFormContainer';
+import SigninFormContainer from 'containers/SigninFormContainer'
 
 const SigninPage: NextPage = () => {
   const router = useRouter()

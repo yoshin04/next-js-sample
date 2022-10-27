@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import SigninForm from './index';
+import SigninForm from './index'
 
 export default {
   title: 'Organisms/SigninForm',

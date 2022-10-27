@@ -46,4 +46,4 @@ Standard.args = {
     { label: 'Books', name: 'books' },
     { label: 'Shoes', name: 'shoes' },
   ],
-};
+}
